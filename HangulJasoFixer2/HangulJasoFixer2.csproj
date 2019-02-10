@@ -47,16 +47,36 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FormBegin.cs">
+    <Compile Include="FormBrowserDialog.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormBegin.Designer.cs">
-      <DependentUpon>FormBegin.cs</DependentUpon>
+    <Compile Include="FormBrowserDialog.Designer.cs">
+      <DependentUpon>FormBrowserDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormMain.Designer.cs">
+      <DependentUpon>FormMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormSearching.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSearching.Designer.cs">
+      <DependentUpon>FormSearching.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="FormBegin.resx">
-      <DependentUpon>FormBegin.cs</DependentUpon>
+    <Compile Include="SearchArguments.cs" />
+    <Compile Include="SearchCriteria.cs" />
+    <EmbeddedResource Include="FormBrowserDialog.resx">
+      <DependentUpon>FormBrowserDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormMain.resx">
+      <DependentUpon>FormMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSearching.resx">
+      <DependentUpon>FormSearching.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -84,6 +104,7 @@
   <ItemGroup>
     <Content Include="HangulJasoFixer.ico" />
     <Content Include="res\HangulJasoFixer.ico" />
+    <None Include="res\toolbar.bmp" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
