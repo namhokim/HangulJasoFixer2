@@ -15,7 +15,7 @@ namespace HangulJasoFixer2
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FormBegin());
+            Application.Run(new FormMain());
         }
     }
 }

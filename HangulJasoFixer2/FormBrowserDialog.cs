@@ -1,20 +1,18 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 
 namespace HangulJasoFixer2
 {
-    public partial class FormBegin : Form
+    public partial class FormBrowserDialog : Form
     {
+        public string RootPath { get { return textBoxPath.Text; } }
+        public bool IsIncludeSubDirectory { get { return checkBoxSearchAlsoSubdirectories.Checked; } }
+        public bool IsIncludeDirectory { get { return checkBoxIncludeDir.Checked; } }
+
         // fixed size: https://stackoverflow.com/questions/2910537/how-can-i-fix-the-form-size-in-a-c-sharp-windows-forms-application-and-not-to-le
         // Default button: https://stackoverflow.com/questions/4280221/default-button-property-in-winform-app
-        public FormBegin()
+        public FormBrowserDialog()
         {
             InitializeComponent();
         }
@@ -67,11 +65,12 @@ namespace HangulJasoFixer2
             {
                 textBoxPath.Text = folderBrowserDialog.SelectedPath;
             }
-            
         }
 
         private void ButtonSearch_Click(object sender, EventArgs e)
         {
+            this.DialogResult = DialogResult.OK;
+            this.Close();
         }
     }
  
