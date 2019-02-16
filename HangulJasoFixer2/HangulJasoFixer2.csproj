@@ -108,11 +108,12 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="res\Jaso48.bmp" />
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="HangulJasoFixer.ico" />
     <Content Include="res\HangulJasoFixer.ico" />
+    <None Include="res\Jaso48.png" />
+    <None Include="res\icons8-info-40.png" />
+    <None Include="res\icons8-replace-40.png" />
+    <None Include="res\icons8-opened-folder-40.png" />
     <None Include="res\toolbar.bmp" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

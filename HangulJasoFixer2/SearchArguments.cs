@@ -29,7 +29,14 @@ namespace HangulJasoFixer2
 
         public void SetCurrentFileLable(string name)
         {
-            currentDisplayLabel.Text = name;
+            if (currentDisplayLabel.InvokeRequired)
+            {
+                currentDisplayLabel.Invoke(new Action(() => { currentDisplayLabel.Text = name; }));
+            }
+            else
+            {
+                currentDisplayLabel.Text = name;
+            }
         }
     }
 }

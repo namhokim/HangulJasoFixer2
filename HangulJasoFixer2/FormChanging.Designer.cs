@@ -78,6 +78,7 @@
             this.Controls.Add(this.labelCurrentFile);
             this.Controls.Add(this.progressBarSearching);
             this.Controls.Add(this.buttonCancel);
+            this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.MinimizeBox = false;

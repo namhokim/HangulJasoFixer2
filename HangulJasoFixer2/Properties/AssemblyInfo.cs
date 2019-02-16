@@ -6,11 +6,11 @@ using System.Runtime.InteropServices;
 // 제어됩니다. 어셈블리와 관련된 정보를 수정하려면
 // 이러한 특성 값을 변경하세요.
 [assembly: AssemblyTitle("HangulJasoFixer2")]
-[assembly: AssemblyDescription("HangulJasoFixer dotnet version")]
+[assembly: AssemblyDescription("HangulJasoFixer .NET version")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Namo Home")]
 [assembly: AssemblyProduct("HangulJasoFixer2")]
-[assembly: AssemblyCopyright("Copyright ©  2019")]
+[assembly: AssemblyCopyright("Copyright ©  2019 namo")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

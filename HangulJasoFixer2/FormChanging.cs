@@ -9,30 +9,25 @@ namespace HangulJasoFixer2
     {
         class WorkerArgument
         {
-            public WorkerArgument(ListView.ListViewItemCollection items,
-                Label currentFileDisplayLabel, int totalFileCount)
+            public WorkerArgument(ListView listview, Label currentFileDisplayLabel)
             {
-                this.Items = items;
+                this.Listview = listview;
                 this.CurrentFileDisplayLabel = currentFileDisplayLabel;
-                this.TotalFileCount = totalFileCount;
             }
-            public ListView.ListViewItemCollection Items { get; }
+            public ListView Listview { get; }
             public Label CurrentFileDisplayLabel { get; }
-            public int TotalFileCount { get; }
         }
 
-        private ListView.ListViewItemCollection items;
-        private int itemsCount;
+        private ListView listview;
 
         public FormChanging()
         {
             InitializeComponent();
         }
 
-        public void SetCriteria(ListView.ListViewItemCollection items, int itemsCount)
+        public void SetCriteria(ListView listview)
         {
-            this.items = items;
-            this.itemsCount = itemsCount;
+            this.listview = listview;
         }
 
         private void ButtonCancel_Click(object sender, EventArgs e)
@@ -51,21 +46,25 @@ namespace HangulJasoFixer2
 
         private void FormChanging_Shown(object sender, EventArgs e)
         {
-            WorkerArgument args = new WorkerArgument(items, labelCurrentFile, itemsCount);
+            WorkerArgument args = new WorkerArgument(listview, labelCurrentFile);
             backgroundWorkerRename.RunWorkerAsync(args);
         }
 
         private void BackgroundWorkerRename_DoWork(object sender, DoWorkEventArgs e)
         {
-            var arg = e.Argument as WorkerArgument;
-            var items = arg.Items as ListView.ListViewItemCollection;
-            var totalFileCount = arg.TotalFileCount;
             var worker = sender as BackgroundWorker;
-        
+            var arg = e.Argument as WorkerArgument;
             var currentFileDisplayLabel = arg.CurrentFileDisplayLabel;
 
+            var listview = arg.Listview as ListView;
+            var totalFileCount = listview.CheckedItems.Count;
+            ChangeFiles(worker, listview.Items, totalFileCount, currentFileDisplayLabel);
+        }
+
+        private void ChangeFiles(BackgroundWorker worker, ListView.ListViewItemCollection items, int totalFileCount, Label currentFileDisplayLabel)
+        {
             int processedCount = 0;
-            foreach(ListViewItem item in items)
+            foreach (ListViewItem item in items)
             {
                 if (worker.CancellationPending)
                 {
@@ -76,17 +75,19 @@ namespace HangulJasoFixer2
                     continue;
                 }
                 processedCount++;
-                worker.ReportProgress(processedCount / totalFileCount);
+                worker.ReportProgress(processedCount * 100 / totalFileCount);
 
                 var original = item.SubItems[0].Text;
                 var destination = item.SubItems[1].Text;
+
                 currentFileDisplayLabel.Text = original;
-                
+
                 try
                 {
                     Rename(original, destination);
                     items.Remove(item);
-                } catch (Exception ex)
+                }
+                catch (Exception ex)
                 {
                     item.SubItems[2].Text = ex.Message;
                 }
@@ -115,7 +116,7 @@ namespace HangulJasoFixer2
                 if (dfi.Exists)
                 {
                     var result = MessageBox.Show("이미 동일한 바뀔 파일명이 있습니다. 덮어쓰시겠습니까?",
-                        "알림", MessageBoxButtons.YesNo);
+                        "알림", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                     if (result == DialogResult.No)
                     {
                         throw new IOException("바뀔 파일명과 동일한 파일이 존재합니다.");

@@ -24,12 +24,25 @@ namespace HangulJasoFixer2
         public void AddRow(string originalFile, string outputFile, string type)
         {
             string[] row = { originalFile, outputFile, type };
-            this.listView.Items.Add(new ListViewItem(row));
+            if (this.listView.InvokeRequired)
+            {
+                this.listView.Invoke(new Action(() => { this.listView.Items.Add(new ListViewItem(row)); }));
+            }
+            else
+            {
+                this.listView.Items.Add(new ListViewItem(row));
+            }
         }
 
         public void ClearRows()
         {
-            this.listView.Items.Clear();
+            if (this.listView.InvokeRequired)
+            {
+                this.listView.Invoke(new Action(() => { this.listView.Items.Clear(); }));
+            } else
+            {
+                this.listView.Items.Clear();
+            }
         }
     }
 }

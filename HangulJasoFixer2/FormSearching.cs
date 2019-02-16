@@ -62,11 +62,6 @@ namespace HangulJasoFixer2
                 }
             }
 
-            if (!args.IsIncludeDirectory)
-            {
-                return;
-            }
-
             foreach (var di in directoryInfo.GetDirectories())
             {
                 if (worker.CancellationPending)
@@ -78,12 +73,24 @@ namespace HangulJasoFixer2
                     SearchWork(worker, args.Clone(di.FullName));
                 }
                 args.SetCurrentFileLable(di.Name);
-                if (!di.FullName.IsNormalized())
+
+                if (!args.IsIncludeDirectory)
                 {
-                    // 디렉토리를 나중에 넣는 이유는 서브 디렉토리의 변경이 먼저 되어야 하기 때문이다.
-                    args.AddRow(di.FullName, di.FullName.Normalize(), "폴더");
+                    return;
+                }
+                string parentDirectory = Path.GetDirectoryName(di.FullName);
+                string currentDirectory = Path.GetFileName(di.FullName);
+                if ((parentDirectory == null || parentDirectory == String.Empty) && !currentDirectory.IsNormalized())
+                {
+                    args.AddRow(di.FullName, di.FullName, "폴더");
                 }
                 
+                if (!currentDirectory.IsNormalized())
+                {
+                    // 디렉토리를 나중에 넣는 이유는 서브 디렉토리의 변경이 먼저 되어야 하기 때문이다.
+                    string fixedFullName = Path.Combine(parentDirectory, currentDirectory.Normalize());
+                    args.AddRow(di.FullName, fixedFullName, "폴더");
+                }
             }
         }
 
