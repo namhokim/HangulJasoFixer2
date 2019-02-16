@@ -59,5 +59,43 @@ namespace HangulJasoFixer2
             formSearching.SetCriteria(searchCriteria);
             formSearching.ShowDialog();
         }
+
+        private void ToolStripButtonExecute_Click(object sender, EventArgs e)
+        {
+            if (NoItemsInListViewFiles())
+            {
+                return;
+            }
+            if (NoCheckedItemInListViewFiles())
+            {
+                var result = MessageBox.Show("아무것도 선택하지 않았습니다. 목록 전체에 대해 수행하시겠습니까?",
+                    "미선택: 질문", MessageBoxButtons.YesNo);
+                if (result == DialogResult.No)
+                {
+                    return;
+                }
+                SetCheckAll();
+            }
+            FormChanging formChanging = new FormChanging();
+            formChanging.ShowDialog();
+        }
+
+        private bool NoItemsInListViewFiles()
+        {
+            return listViewFiles.Items.Count == 0;
+        }
+
+        private bool NoCheckedItemInListViewFiles()
+        {
+            return listViewFiles.CheckedItems.Count == 0;
+        }
+
+        private void SetCheckAll()
+        {
+            foreach (ListViewItem item in listViewFiles.Items)
+            {
+                item.Checked = true;
+            }
+        }
     }
 }

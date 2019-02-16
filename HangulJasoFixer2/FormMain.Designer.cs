@@ -106,6 +106,7 @@
             this.toolStripButtonExecute.Name = "toolStripButtonExecute";
             this.toolStripButtonExecute.Size = new System.Drawing.Size(23, 22);
             this.toolStripButtonExecute.Text = "파일 이름을 변경합니다";
+            this.toolStripButtonExecute.Click += new System.EventHandler(this.ToolStripButtonExecute_Click);
             // 
             // toolStripButtonInfo
             // 
