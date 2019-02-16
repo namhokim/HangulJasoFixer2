@@ -89,7 +89,7 @@
             this.checkBoxIncludeDir.Name = "checkBoxIncludeDir";
             this.checkBoxIncludeDir.Size = new System.Drawing.Size(112, 16);
             this.checkBoxIncludeDir.TabIndex = 3;
-            this.checkBoxIncludeDir.Text = "디렉토리도 찾기";
+            this.checkBoxIncludeDir.Text = "디렉터리도 찾기";
             this.checkBoxIncludeDir.UseVisualStyleBackColor = true;
             // 
             // buttonSearch
