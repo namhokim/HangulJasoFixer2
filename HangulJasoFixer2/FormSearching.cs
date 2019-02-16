@@ -76,7 +76,7 @@ namespace HangulJasoFixer2
 
                 if (!args.IsIncludeDirectory)
                 {
-                    return;
+                    continue;
                 }
                 string parentDirectory = Path.GetDirectoryName(di.FullName);
                 string currentDirectory = Path.GetFileName(di.FullName);
