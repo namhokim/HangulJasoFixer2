@@ -47,10 +47,13 @@
             // progressBarSearching
             // 
             this.progressBarSearching.Location = new System.Drawing.Point(74, 52);
+            this.progressBarSearching.MarqueeAnimationSpeed = 10;
             this.progressBarSearching.Name = "progressBarSearching";
             this.progressBarSearching.Size = new System.Drawing.Size(369, 18);
-            this.progressBarSearching.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
+            this.progressBarSearching.Step = 30;
+            this.progressBarSearching.Style = System.Windows.Forms.ProgressBarStyle.Marquee;
             this.progressBarSearching.TabIndex = 1;
+            this.progressBarSearching.Value = 50;
             // 
             // backgroundWorkerSearch
             // 
@@ -78,6 +81,7 @@
             this.Controls.Add(this.labelCurrentFile);
             this.Controls.Add(this.progressBarSearching);
             this.Controls.Add(this.buttonCancel);
+            this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.MinimizeBox = false;

@@ -63,7 +63,7 @@ namespace HangulJasoFixer2
             if (NoCheckedItemInListViewFiles())
             {
                 var result = MessageBox.Show("아무것도 선택하지 않았습니다. 목록 전체에 대해 수행하시겠습니까?",
-                    "미선택: 질문", MessageBoxButtons.YesNo);
+                    "미선택: 질문", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (result == DialogResult.No)
                 {
                     return;
@@ -71,7 +71,7 @@ namespace HangulJasoFixer2
                 SetCheckAll();
             }
             FormChanging formChanging = new FormChanging();
-            formChanging.SetCriteria(listViewFiles.Items, listViewFiles.CheckedItems.Count);
+            formChanging.SetCriteria(listViewFiles);
             formChanging.ShowDialog();
         }
 

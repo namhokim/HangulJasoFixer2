@@ -40,8 +40,15 @@ namespace HangulJasoFixer2
                 try
                 {
                     // https://stackoverflow.com/questions/3812289/is-there-any-way-to-get-a-file-name-from-a-path
-                    string path = Path.GetDirectoryName(files[0]);
-                    textBoxPath.Text = path;
+                    var attr = File.GetAttributes(files[0]);
+                    if (attr.HasFlag(FileAttributes.Directory))
+                    {
+                        textBoxPath.Text = files[0];
+                    }
+                    else
+                    {
+                        textBoxPath.Text = Path.GetDirectoryName(files[0]);
+                    }
                 }
                 catch (Exception ex)
                 {

@@ -52,9 +52,9 @@
             this.colHeaderFileType});
             this.listViewFiles.FullRowSelect = true;
             this.listViewFiles.GridLines = true;
-            this.listViewFiles.Location = new System.Drawing.Point(12, 28);
+            this.listViewFiles.Location = new System.Drawing.Point(12, 46);
             this.listViewFiles.Name = "listViewFiles";
-            this.listViewFiles.Size = new System.Drawing.Size(810, 421);
+            this.listViewFiles.Size = new System.Drawing.Size(810, 403);
             this.listViewFiles.TabIndex = 0;
             this.listViewFiles.UseCompatibleStateImageBehavior = false;
             this.listViewFiles.View = System.Windows.Forms.View.Details;
@@ -82,7 +82,7 @@
             this.toolStripButtonInfo});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(834, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(834, 47);
             this.toolStrip1.TabIndex = 1;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -90,31 +90,34 @@
             // 
             this.toolStripButtonBrowser.BackColor = System.Drawing.Color.Transparent;
             this.toolStripButtonBrowser.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonBrowser.Image = global::HangulJasoFixer2.Properties.Resources.toolbar;
+            this.toolStripButtonBrowser.Image = global::HangulJasoFixer2.Properties.Resources.folder;
             this.toolStripButtonBrowser.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.toolStripButtonBrowser.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.toolStripButtonBrowser.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonBrowser.Name = "toolStripButtonBrowser";
-            this.toolStripButtonBrowser.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButtonBrowser.Size = new System.Drawing.Size(44, 44);
             this.toolStripButtonBrowser.Text = "검색할 폴더를 변경합니다";
             this.toolStripButtonBrowser.Click += new System.EventHandler(this.ToolStripButtonBrowser_Click);
             // 
             // toolStripButtonExecute
             // 
             this.toolStripButtonExecute.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonExecute.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonExecute.Image")));
+            this.toolStripButtonExecute.Image = global::HangulJasoFixer2.Properties.Resources.replace;
+            this.toolStripButtonExecute.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.toolStripButtonExecute.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonExecute.Name = "toolStripButtonExecute";
-            this.toolStripButtonExecute.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButtonExecute.Size = new System.Drawing.Size(44, 44);
             this.toolStripButtonExecute.Text = "파일 이름을 변경합니다";
             this.toolStripButtonExecute.Click += new System.EventHandler(this.ToolStripButtonExecute_Click);
             // 
             // toolStripButtonInfo
             // 
             this.toolStripButtonInfo.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonInfo.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonInfo.Image")));
+            this.toolStripButtonInfo.Image = global::HangulJasoFixer2.Properties.Resources.info;
+            this.toolStripButtonInfo.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.toolStripButtonInfo.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonInfo.Name = "toolStripButtonInfo";
-            this.toolStripButtonInfo.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButtonInfo.Size = new System.Drawing.Size(44, 44);
             this.toolStripButtonInfo.Text = "프로그램 정보(버전 정보 등)를 표시합니다.";
             // 
             // FormMain

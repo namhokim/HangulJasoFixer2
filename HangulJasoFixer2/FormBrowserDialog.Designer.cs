@@ -128,7 +128,7 @@
             // panelLogo
             // 
             this.panelLogo.BackColor = System.Drawing.Color.Transparent;
-            this.panelLogo.BackgroundImage = global::HangulJasoFixer2.Properties.Resources.Jaso48;
+            this.panelLogo.BackgroundImage = global::HangulJasoFixer2.Properties.Resources.Jaso48px;
             this.panelLogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.panelLogo.Location = new System.Drawing.Point(14, 12);
             this.panelLogo.Name = "panelLogo";
@@ -140,7 +140,7 @@
             // 
             this.folderBrowserDialog.ShowNewFolderButton = false;
             // 
-            // FormBegin
+            // FormBrowserDialog
             // 
             this.AcceptButton = this.buttonSearch;
             this.AllowDrop = true;
@@ -157,7 +157,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimumSize = new System.Drawing.Size(519, 226);
-            this.Name = "FormBegin";
+            this.Name = "FormBrowserDialog";
             this.ShowIcon = false;
             this.Text = "자소 합치기2 (Mac OS X → Windows)";
             this.DragDrop += new System.Windows.Forms.DragEventHandler(this.FormBegin_DragDrop);
