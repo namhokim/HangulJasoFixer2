@@ -21,16 +21,21 @@ namespace HangulJasoFixer2
 
         private void ButtonCancel_Click(object sender, EventArgs e)
         {
-            if (backgroundWorkerSeaching.IsBusy)
-            {
-                backgroundWorkerSeaching.CancelAsync();
-            }
+            StopSignalToBackgroundWorker();
             buttonCancel.Enabled = false;
+        }
+
+        private void StopSignalToBackgroundWorker()
+        {
+            if (backgroundWorkerSearch.IsBusy)
+            {
+                backgroundWorkerSearch.CancelAsync();
+            }
         }
 
         private void FormSearching_Shown(object sender, EventArgs e)
         {
-            backgroundWorkerSeaching.RunWorkerAsync(searchArguments);
+            backgroundWorkerSearch.RunWorkerAsync(searchArguments);
         }
 
         private void BackgroundWorkerSeaching_DoWork(object sender, DoWorkEventArgs e)
@@ -50,9 +55,10 @@ namespace HangulJasoFixer2
                 {
                     return;
                 }
-                if (!fi.FullName.IsNormalized())
+                if (!fi.Name.IsNormalized())
                 {
-                    args.AddRow(fi.FullName, fi.FullName.Normalize(), "파일");
+                    string fixedFullName = Path.Combine(fi.DirectoryName, fi.Name.Normalize());
+                    args.AddRow(fi.FullName, fixedFullName, "파일");
                 }
             }
 
@@ -91,6 +97,9 @@ namespace HangulJasoFixer2
             this.Close();
         }
 
-        
+        private void FormSearching_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            StopSignalToBackgroundWorker();
+        }
     }
 }

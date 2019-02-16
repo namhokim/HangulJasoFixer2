@@ -30,7 +30,7 @@
         {
             this.buttonCancel = new System.Windows.Forms.Button();
             this.progressBarSearching = new System.Windows.Forms.ProgressBar();
-            this.backgroundWorkerSeaching = new System.ComponentModel.BackgroundWorker();
+            this.backgroundWorkerSearch = new System.ComponentModel.BackgroundWorker();
             this.labelCurrentFile = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
@@ -52,13 +52,13 @@
             this.progressBarSearching.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
             this.progressBarSearching.TabIndex = 1;
             // 
-            // backgroundWorkerSeaching
+            // backgroundWorkerSearch
             // 
-            this.backgroundWorkerSeaching.WorkerReportsProgress = true;
-            this.backgroundWorkerSeaching.WorkerSupportsCancellation = true;
-            this.backgroundWorkerSeaching.DoWork += new System.ComponentModel.DoWorkEventHandler(this.BackgroundWorkerSeaching_DoWork);
-            this.backgroundWorkerSeaching.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.BackgroundWorkerSeaching_ProgressChanged);
-            this.backgroundWorkerSeaching.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.BackgroundWorkerSeaching_RunWorkerCompleted);
+            this.backgroundWorkerSearch.WorkerReportsProgress = true;
+            this.backgroundWorkerSearch.WorkerSupportsCancellation = true;
+            this.backgroundWorkerSearch.DoWork += new System.ComponentModel.DoWorkEventHandler(this.BackgroundWorkerSeaching_DoWork);
+            this.backgroundWorkerSearch.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.BackgroundWorkerSeaching_ProgressChanged);
+            this.backgroundWorkerSearch.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.BackgroundWorkerSeaching_RunWorkerCompleted);
             // 
             // labelCurrentFile
             // 
@@ -84,6 +84,7 @@
             this.Name = "FormSearching";
             this.ShowIcon = false;
             this.Text = "검색중...";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormSearching_FormClosing);
             this.Shown += new System.EventHandler(this.FormSearching_Shown);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -94,7 +95,7 @@
 
         private System.Windows.Forms.Button buttonCancel;
         private System.Windows.Forms.ProgressBar progressBarSearching;
-        private System.ComponentModel.BackgroundWorker backgroundWorkerSeaching;
+        private System.ComponentModel.BackgroundWorker backgroundWorkerSearch;
         private System.Windows.Forms.Label labelCurrentFile;
     }
 }
