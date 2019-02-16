@@ -1,11 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 
 namespace HangulJasoFixer2
@@ -55,7 +50,10 @@ namespace HangulJasoFixer2
                 {
                     return;
                 }
-                args.AddRow(fi.FullName, fi.FullName, "파일");
+                if (!fi.FullName.IsNormalized())
+                {
+                    args.AddRow(fi.FullName, fi.FullName.Normalize(), "파일");
+                }
             }
 
             if (!args.IsIncludeDirectory)
@@ -73,9 +71,13 @@ namespace HangulJasoFixer2
                 {
                     SearchWork(worker, args.Clone(di.FullName));
                 }
-                // add current directory
                 args.SetCurrentFileLable(di.Name);
-                args.AddRow(di.FullName, di.FullName, "폴더");
+                if (!di.FullName.IsNormalized())
+                {
+                    // 디렉토리를 나중에 넣는 이유는 서브 디렉토리의 변경이 먼저 되어야 하기 때문이다.
+                    args.AddRow(di.FullName, di.FullName.Normalize(), "폴더");
+                }
+                
             }
         }
 
