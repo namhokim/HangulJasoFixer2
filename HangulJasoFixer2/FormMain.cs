@@ -1,10 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 
 namespace HangulJasoFixer2
@@ -77,6 +71,7 @@ namespace HangulJasoFixer2
                 SetCheckAll();
             }
             FormChanging formChanging = new FormChanging();
+            formChanging.SetCriteria(listViewFiles.Items, listViewFiles.CheckedItems.Count);
             formChanging.ShowDialog();
         }
 

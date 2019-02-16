@@ -59,11 +59,15 @@
             this.buttonCancel.TabIndex = 3;
             this.buttonCancel.Text = "취소(&C)";
             this.buttonCancel.UseVisualStyleBackColor = true;
+            this.buttonCancel.Click += new System.EventHandler(this.ButtonCancel_Click);
             // 
             // backgroundWorkerRename
             // 
             this.backgroundWorkerRename.WorkerReportsProgress = true;
             this.backgroundWorkerRename.WorkerSupportsCancellation = true;
+            this.backgroundWorkerRename.DoWork += new System.ComponentModel.DoWorkEventHandler(this.BackgroundWorkerRename_DoWork);
+            this.backgroundWorkerRename.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.BackgroundWorkerRename_ProgressChanged);
+            this.backgroundWorkerRename.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.BackgroundWorkerRename_RunWorkerCompleted);
             // 
             // FormChanging
             // 
@@ -80,6 +84,8 @@
             this.Name = "FormChanging";
             this.ShowIcon = false;
             this.Text = "변경중...";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormChanging_FormClosing);
+            this.Shown += new System.EventHandler(this.FormChanging_Shown);
             this.ResumeLayout(false);
             this.PerformLayout();
 
