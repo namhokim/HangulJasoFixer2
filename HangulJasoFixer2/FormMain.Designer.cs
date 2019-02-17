@@ -119,6 +119,7 @@
             this.toolStripButtonInfo.Name = "toolStripButtonInfo";
             this.toolStripButtonInfo.Size = new System.Drawing.Size(44, 44);
             this.toolStripButtonInfo.Text = "프로그램 정보(버전 정보 등)를 표시합니다.";
+            this.toolStripButtonInfo.Click += new System.EventHandler(this.ToolStripButtonInfo_Click);
             // 
             // FormMain
             // 

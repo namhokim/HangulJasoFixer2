@@ -19,7 +19,10 @@ namespace HangulJasoFixer2
         /// <returns>취소를 눌렀는지 여부</returns>
         private bool ShowBrowserDialog()
         {
-            FormBrowserDialog formBrowser = new FormBrowserDialog();
+            FormBrowserDialog formBrowser = new FormBrowserDialog
+            {
+                StartPosition = FormStartPosition.CenterParent
+            };
             DialogResult result = formBrowser.ShowDialog();
             if (result == DialogResult.OK)
             {
@@ -49,7 +52,10 @@ namespace HangulJasoFixer2
 
         private void Search(SearchCriteria searchCriteria)
         {
-            FormSearching formSearching = new FormSearching();
+            FormSearching formSearching = new FormSearching
+            {
+                StartPosition = FormStartPosition.CenterParent
+            };
             formSearching.SetCriteria(searchCriteria);
             formSearching.ShowDialog();
         }
@@ -71,6 +77,7 @@ namespace HangulJasoFixer2
                 SetCheckAll();
             }
             FormChanging formChanging = new FormChanging();
+            formChanging.StartPosition = FormStartPosition.CenterParent;
             formChanging.SetCriteria(listViewFiles);
             formChanging.ShowDialog();
         }
@@ -91,6 +98,15 @@ namespace HangulJasoFixer2
             {
                 item.Checked = true;
             }
+        }
+
+        private void ToolStripButtonInfo_Click(object sender, EventArgs e)
+        {
+            var formInfo = new FormInfo
+            {
+                StartPosition = FormStartPosition.CenterParent
+            };
+            formInfo.Show();
         }
     }
 }

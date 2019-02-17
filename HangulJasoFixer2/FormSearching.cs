@@ -87,7 +87,7 @@ namespace HangulJasoFixer2
                 
                 if (!currentDirectory.IsNormalized())
                 {
-                    // 디렉토리를 나중에 넣는 이유는 서브 디렉토리의 변경이 먼저 되어야 하기 때문이다.
+                    // 순서상 서브 디렉토리의 변경이 먼저 되어야 하기 때문에 디렉토리는 나중에 넣는다.
                     string fixedFullName = Path.Combine(parentDirectory, currentDirectory.Normalize());
                     args.AddRow(di.FullName, fixedFullName, "폴더");
                 }
