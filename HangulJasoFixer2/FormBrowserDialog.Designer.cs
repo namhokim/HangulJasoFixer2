@@ -159,6 +159,7 @@
             this.MinimumSize = new System.Drawing.Size(519, 226);
             this.Name = "FormBrowserDialog";
             this.ShowIcon = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "자소 합치기2 (Mac OS X → Windows)";
             this.DragDrop += new System.Windows.Forms.DragEventHandler(this.FormBegin_DragDrop);
             this.DragEnter += new System.Windows.Forms.DragEventHandler(this.FormBegin_DragEnter);

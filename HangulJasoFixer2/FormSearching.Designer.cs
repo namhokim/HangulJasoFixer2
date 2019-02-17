@@ -87,6 +87,7 @@
             this.MinimizeBox = false;
             this.Name = "FormSearching";
             this.ShowIcon = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "검색중...";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormSearching_FormClosing);
             this.Shown += new System.EventHandler(this.FormSearching_Shown);

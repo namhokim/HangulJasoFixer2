@@ -84,6 +84,7 @@
             this.MinimizeBox = false;
             this.Name = "FormChanging";
             this.ShowIcon = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "변경중...";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormChanging_FormClosing);
             this.Shown += new System.EventHandler(this.FormChanging_Shown);
